@@ -16,14 +16,27 @@ module DeploymentTest
       user_count(name).entries[0]['count'] != '0'
     end
 
+    def user_can_login?(name, password)
+      begin
+        PGconn.connect(@options.merge(:user=>name, :password => password))
+        true
+      rescue PGError
+        false
+      end
+    end
+
     private
 
       def postgres_connection
         @postgres_connection ||= PGconn.connect(@options)
       end
 
+      def postgres_exec(query)
+        postgres_connection.exec(query)
+      end
+
       def user_count(name)
-        postgres_connection.exec("SELECT COUNT(*) FROM pg_user WHERE usename='#{name}'")
+        postgres_exec("SELECT COUNT(*) FROM pg_user WHERE usename='#{name}'")
       end
 
   end

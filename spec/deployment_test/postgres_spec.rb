@@ -24,4 +24,33 @@ describe DeploymentTest::Postgres do
     end
   end
 
+  describe "#user_can_login?" do
+    subject { the_object.user_can_login?(user_name, user_password) }
+
+    let(:existing_user_name) do
+      begin
+        the_object.send(:postgres_exec, "CREATE ROLE deployment_test_example;")
+      rescue PGError
+      end
+      "deployment_test_example"
+    end
+
+    context "when user exist with password" do
+      let(:user_name) { existing_user_name }
+      let(:user_password) do
+        the_object.send(:postgres_exec, "ALTER ROLE #{existing_user_name} ENCRYPTED PASSWORD 'xxx';")
+        'xxx'
+      end
+
+      it { should be_true }
+    end
+
+    context "then user not exist" do
+      let(:user_name) { "deployment_test_not_existing" }
+      let(:user_password) { "deployment_test_example_password" }
+
+      it { should be_false }
+    end
+  end
+
 end
