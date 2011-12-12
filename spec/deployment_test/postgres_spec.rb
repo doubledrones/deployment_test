@@ -8,7 +8,7 @@ describe DeploymentTest::Postgres do
     the_class.new(:user => 'deployment_test', :password =>'deployment_test')
   end
 
-  describe ".user_exist?" do
+  describe "#user_exist?" do
     subject { the_object.user_exist?(user_name) }
 
     context "when user exist" do
