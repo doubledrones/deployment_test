@@ -1,3 +1,6 @@
+== 0.0.3 (December 12, 2011)
+* correct paste-o
+
 == 0.0.2 (December 12, 2011)
 * workaround to allow work on Ruby < 1.9.2
 
