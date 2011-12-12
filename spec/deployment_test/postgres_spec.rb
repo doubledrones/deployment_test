@@ -24,6 +24,4 @@ describe DeploymentTest::Postgres do
     end
   end
 
-  
-
 end
