@@ -1,0 +1,7 @@
+CHANGELOG.rdoc
+MIT-LICENSE
+Manifest
+README
+Rakefile
+lib/deployment_test/deployment_test.rb
+lib/deployment_test/version.rb
