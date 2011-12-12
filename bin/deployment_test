@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'deployment_test'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: deployment_test [options]"
+
+  opts.on("-u", "--postgres-user-exist <username>", "Check for postgres user existance") do |v|
+    options[:class] = DeploymentTest::Postgres
+    options[:action] = :user_exist?
+    options[:params] = v
+  end
+
+  opts.on("-l", "--postgres-user-can-login <username,password>", "Check for postgres user can login") do |v|
+    options[:class] = DeploymentTest::Postgres
+    options[:action] = :user_can_login?
+    options[:params] = v.split(',')
+  end
+
+end.parse!
+
+exit 0 if options[:class].new.send(options[:action], options[:params])
+exit 1

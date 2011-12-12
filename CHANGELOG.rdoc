@@ -1,3 +1,6 @@
+== 0.0.4 (December 12, 2011)
+* add shell command to perform check
+
 == 0.0.3 (December 12, 2011)
 * correct paste-o
 

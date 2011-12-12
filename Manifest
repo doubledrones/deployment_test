@@ -5,6 +5,7 @@ MIT-LICENSE
 Manifest
 README
 Rakefile
+bin/deployment_test
 lib/deployment_test.rb
 lib/deployment_test/postgres.rb
 lib/deployment_test/version.rb
