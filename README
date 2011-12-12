@@ -1,0 +1,3 @@
+deployment_test is gem to perform common deployment testing
+
+It test things like: "postgres user exist", "postgres user loggable"
