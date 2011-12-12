@@ -1,7 +1,11 @@
 CHANGELOG.rdoc
+Gemfile
+Gemfile.lock
 MIT-LICENSE
 Manifest
 README
 Rakefile
-lib/deployment_test/deployment_test.rb
+lib/deployment_test.rb
+lib/deployment_test/postgres.rb
 lib/deployment_test/version.rb
+spec/deployment_test/postgres_spec.rb
