@@ -25,6 +25,10 @@ module DeploymentTest
       end
     end
 
+    def database_exist?(name)
+      database_count(name).entries[0]['count'] != '0'
+    end
+
     private
 
       def postgres_connection
@@ -37,6 +41,10 @@ module DeploymentTest
 
       def user_count(name)
         postgres_exec("SELECT COUNT(*) FROM pg_user WHERE usename='#{name}'")
+      end
+
+      def database_count(name)
+        postgres_exec("SELECT COUNT(*) FROM pg_database WHERE datname='#{name}'")
       end
 
   end

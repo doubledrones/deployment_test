@@ -1,3 +1,6 @@
+== 0.0.5 (December 14, 2011)
+* add check for postgres database existance
+
 == 0.0.4 (December 12, 2011)
 * add shell command to perform check
 

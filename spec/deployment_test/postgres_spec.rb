@@ -53,4 +53,20 @@ describe DeploymentTest::Postgres do
     end
   end
 
+  describe "#database_exist?" do
+    subject { the_object.database_exist?(database_name) }
+
+    context "when database exist" do
+      let(:database_name) { "postgres" }
+
+      it { should be_true }
+    end
+
+    context "when database not exist" do
+      let(:database_name) { "example_not_existing_database" }
+
+      it { should be_false }
+    end
+  end
+
 end
